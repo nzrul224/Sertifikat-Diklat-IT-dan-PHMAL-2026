@@ -90,7 +90,7 @@
                 Cari & Unduh E-Sertifikat Anda
             </h2>
             <p class="text-slate-600 text-sm sm:text-base mb-8">
-                Masukkan <span class="font-semibold text-slate-800">Nama Anda</span> satu suku kata (Contoh: Abdul Samad, cuku tuliskan kata "SAMAD") atau <span class="font-semibold text-slate-800">Nomor Sertifikat</span>.
+                Masukkan <span class="font-semibold text-slate-800">Nama Anda</span> satu suku kata (Contoh: Abdul Samad, cukup tuliskan kata "SAMAD") atau cari menggunakan <span class="font-semibold text-slate-800">Nomor Sertifikat</span>.
             </p>
 
             <!-- Search Bar Box -->
@@ -285,7 +285,7 @@
                 <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
                     <label class="block text-xs font-semibold text-slate-800">URL Web App API Saat Ini:</label>
                     <div class="flex gap-2">
-                        <input type="text" id="https://script.google.com/macros/s/AKfycbwxlGKi3b9JhVXH0AlStu2cu3GjgTkd9u1rLWzFU6-_RTgDrM8M7kqfTB7TnZOwJZB4dA/exec" class="w-full p-2.5 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="https://script.google.com/macros/s/.../exec">
+                        <input type="text" id="api-url-display" class="w-full p-2.5 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="https://script.google.com/macros/s/.../exec">
                         <button onclick="testApiDirectly()" class="px-4 py-2.5 bg-sky-600 hover:bg-sky-700 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 whitespace-nowrap shadow-sm transition">
                             <i class="fa-solid fa-vial"></i> Uji Coba API
                         </button>
@@ -331,7 +331,7 @@
          * =================================================================
          */
         // PENTING: Ganti URL di bawah ini dengan Web App URL hasil Deploy Google Apps Script Anda!
-        let API_URL = "https://script.google.com/macros/s/AKfycbx_PASTE_YOUR_DEPLOYED_WEB_APP_ID_HERE/exec";
+        let API_URL = "https://script.google.com/macros/s/AKfycbwxlGKi3b9JhVXH0AlStu2cu3GjgTkd9u1rLWzFU6-_RTgDrM8M7kqfTB7TnZOwJZB4dA/exec";
 
         // Global State Variables
         let certificatesData = [];
@@ -824,3 +824,9 @@
     </script>
 </body>
 </html>
+```
+
+### Ringkasan Pembaruan di `index.html`:
+1. **Fungsi `executeSearch()`**: Ditambahkan secara eksplisit. Tombol **"Cari"** dan tombol **Enter** kini secara langsung menjalankan pencarian data.
+2. **Uji Coba API Langsung (*Live API Tester*)**: Pada modal bantuan (ikon **?** di pojok kanan atas), Anda kini dapat mengetikkan/menempelkan URL API dan mengeklik **"Uji Coba API"**.
+3. **Pesan Diagnosa Interaktif**: Jika Google Apps Script memblokir koneksi (misalnya karena `Who has access` belum diset ke `Anyone`), modal akan langsung menampilkan instruksi perbaikannya secara presisi.
